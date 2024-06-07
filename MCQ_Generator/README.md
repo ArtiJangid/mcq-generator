@@ -14,15 +14,13 @@ Wordnet approach (to get the sense of the word) is used to generate distractors.
 
 ## ✅ Web Functionalities ##
 
-Frontend consists of Web interface in which user has to submit the content on which he/she has to generate Questions this content should be in a Plain Text/PDF/PPT format.
-User can also search the Topic Tag on the provided search bar for which he/she has to generate questions. The program will then find the relevant information based on the tag from the internet and display to the user.
-From the given content the processing is done and the keywords are generated, user can also select the keywords of his/her choice. If user finds some questions irrelevant he/she can discard or manipulate or change that particular question accordingly. The generated output can be saved into our database or can be exported as in Word (.docs) format, pdf format or Google forms and also a shareable link.
+Frontend consists of Web interface in which user has to submit the content on which he/she has to generate Questions this content should be in a Plain Text format.
+From the given content the processing is done and the keywords are generated, user can also select the keywords of his/her choice. If user finds some questions irrelevant he/she can discard or manipulate or change that particular question accordingly. The generated output can be exported in text file (.txt) format.
 
 ## ✅ Technology Stack  ##
 
 Front end: HTML, CSS, Bootstrap, JavaScript .
 Framework: Django.
-Backend : SQLite
 
 ## ✅ MCQ Generation ##
 
