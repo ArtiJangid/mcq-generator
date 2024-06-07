@@ -1,0 +1,131 @@
+{% load static %}
+
+<html lang="en">
+<head>
+
+    <title>MCQ's Generator</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="{% static 'qgen/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'qgen/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'qgen/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'qgen/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'qgen/css/owl.theme.default.min.css' %}">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="{% static 'qgen/css/templatemo-digital-trend.css' %}">
+    <style>
+
+        .slider {
+          -webkit-appearance: none;
+          width: 60%;
+          height: 10px;
+          border-radius: 5px;
+          background: #d3d3d3;
+          outline: none;
+          opacity: 0.7;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+        }
+
+        .slider:hover {
+          opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: #ffc107;
+          cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          background: #ffc107;
+          cursor: pointer;
+        }
+
+        .slidecontainer {
+          margin-bottom: 20px;
+        }
+        .text-center {
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- MENU BAR -->
+<a class="navbar-brand" href="{% url 'qgen-home'%}">
+    <i class="fa fa-cogs fa-2x"></i>
+    <b>IntelliQuiz</b>
+</a>
+
+<!--Main Part-->
+<section class="hero-bg">
+    <div class="container pt-3">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3 style="color: #ffc107;"><strong>MCQ's Generator</strong></h3>
+            </div>
+            <form class=" justify-content-center" method="POST" action="">
+                <div class="card-body">
+                    <div class="slidecontainer">
+                        <input name="compression_ratio" type="range" min="30" max="100" value="80"
+                                       class="slider" id="myRange" >
+                    </div>
+                    {% csrf_token%}
+                    <div class="col-lg-12 text-center">
+                        {% if result %}
+                        <textarea name="full_text" class="form-control z-depth-1 shadow-lg p-3 mb-5 bg-white rounded"
+                                  id="exampleFormControlTextarea6" rows="20" cols="150"
+                                  placeholder="Write something here...">{{result}}</textarea>
+                        {% elif mcqs %}
+                        <textarea id="text" name="full_text"
+                                  class="form-control z-depth-1 shadow-lg p-3 mb-5 bg-white rounded"
+                                  id="exampleFormControlTextarea6" rows="20" cols="150"
+                                  placeholder="Write something here...">{{mcqs}}</textarea>
+                        {% else %}
+                        <textarea name="full_text" class="form-control z-depth-1 shadow-lg p-3 mb-5 bg-white rounded"
+                                  id="exampleFormControlTextarea6" rows="20" cols="150"
+                                  placeholder="Write something here..."></textarea>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="text-center">
+                    {% if mcqs %}
+                    <form id="downloadForm" method="post" action="{% url 'mcq-gen' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="mcqs" value="{{ mcqs|escape }}">
+                        <button type="submit" name="download" class="btn btn-primary mb-2">
+                            <i class="fa fa-download" aria-hidden="true"></i>Download
+                        </button>
+                    </form>
+                    {% else %}
+                    <form method="post" action="{% url 'mcq-gen' %}">
+                        {% csrf_token %}
+                        <button name="mcq_content_form" type="submit" class="btn" style="background-color: #ffc107;">
+                            Submit
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
