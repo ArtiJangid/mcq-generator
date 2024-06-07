@@ -1,4 +1,4 @@
-# 🟣 Automated Question Generator & Summarizer 🟣 #
+#  Automated Question Generator & Summarizer  #
 
 Examinations and Assessments are undergoing a tremendous revolution.The pattern of assessment is majorly shifting towards the objective based assessment
 i.e. MCQ based , it is very hard to construct and it requires considerable amount of time for setting numerous questions on daily basis.
@@ -6,11 +6,6 @@ There’s a growing need for a cost-effective and time efficient automated MCQ g
 
 In this technique we use AI powered tools based on Natural Language Processing. Automatically generating MCQs from any content using BERT. BERT(Bidirectional Encoder Representations from Transformers)- most powerful game-changing NLP algorithm by Google for real world task. It helps computers understand language a bit more like humans do. It is a pre-trained model open sourced by google which can be used to summarize text , extract keywords.
 Wordnet approach (to get the sense of the word) is used to generate distractors. It is used to get the correct sense of the word given a sentence along with it.
-#### For more : *https://youtu.be/ET9hek78mBI* ####
-
-## ✅ MCQ Generation  ##
-
-![image](https://user-images.githubusercontent.com/59086770/192775965-bff0a00c-c5b0-42c7-9729-4046a803263a.png)
 
 ## ✅ Web Functionalities ##
 
@@ -21,10 +16,6 @@ From the given content the processing is done and the keywords are generated, us
 
 Front end: HTML, CSS, Bootstrap, JavaScript .
 Framework: Django.
-
-## ✅ MCQ Generation ##
-
-![image](https://user-images.githubusercontent.com/59086770/192776538-6eab3e38-f12b-4eea-9289-9da18f8db5af.png)
 
 ## ✅ Conclusion  ##
 
